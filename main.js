@@ -30,6 +30,7 @@ function result() {
     var xItem = randomValueFromArray(insertX);
     var yItem = randomValueFromArray(insertY);
     var zItem = randomValueFromArray(insertZ);
+    newStory = newStory.replace(":insertx:" / g, "xItem").replace(":inserty:", yItem).replace(":replacez:", zItem);
 
     if (customName.value != '') {
         var name = customName.value;
