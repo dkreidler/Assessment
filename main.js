@@ -12,12 +12,10 @@ var insertX = ["Willy the Goblin",
     "Big Daddy",
     "Father Christmas"
 ];
-
 var insertY = ["the soup kitchen",
     "Disneyland",
     "the White House"
 ];
-
 var insertZ = ["spontaneously combusted",
     "melted into a puddle on the sidewalk",
     "turned into a slug and crawled away"
@@ -30,19 +28,24 @@ function result() {
     var xItem = randomValueFromArray(insertX);
     var yItem = randomValueFromArray(insertY);
     var zItem = randomValueFromArray(insertZ);
-    newStory = newStory.replace(":insertx:" / g, "xItem").replace(":inserty:", yItem).replace(":replacez:", zItem);
+    newStory = newStory.replace(/:insertx:/g, xItem);
+    newStory = newStory.replace(/:inserty:/, yItem);
+    newStory = newStory.replace(/:insertz:/, zItem);
 
     if (customName.value != '') {
         var name = customName.value;
+        newstory = newStory.replace(/Bob/, name);
 
     }
 
     if (document.getElementById("uk").checked) {
-        var weight = Math.round(300);
-        var temperature = Math.round(94);
+        var weight = Math.round(300 * 0.71429) + ' stone';
+        var temperature = Math.round((94 - 32) * (5 / 9)) + ' centigrade';
+        newStory = newStory.replace(/94 farenheit/, temperature);
+        newStory = newStory.replace(/300 pounds/, weight);
 
     }
 
-    story.textContent = ;
+    story.textContent = newStory;
     story.style.visibility = 'visible';
 }
